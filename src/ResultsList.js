@@ -1,5 +1,7 @@
 import React from 'react';
 import Loader from './Loader';
+import { CardContainer, CardSection, CardListContainer } from './CardContainer';
+
 
 function renderGifs(results) {
   if(results.length  === 0) {
@@ -9,10 +11,12 @@ function renderGifs(results) {
     let {title} = gif;
     let{url} = gif.imageObj;
     return (
-      <div>
+      <CardContainer>
         {gif.title}
-        <img src ={`${url}`}></img>
-      </div>
+        <CardSection>
+          <img style={{'margin': '0 auto'}}src ={`${url}`}></img>
+        </CardSection>
+      </CardContainer>
 
     )
   })
@@ -22,7 +26,7 @@ function renderGifs(results) {
 const ResultsList = (props) => {
   let {results} = props;
   return (
-    <div>{renderGifs(results)}</div>
+    <CardListContainer>{renderGifs(results)}</CardListContainer>
   )
 }
 

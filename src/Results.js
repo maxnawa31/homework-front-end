@@ -11,7 +11,7 @@ export default class Results extends Component {
     }
   }
   findGifs =  (keyword) => {
-    fetch(`http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=${API_KEY}&limit=5`)
+    fetch(`http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=${API_KEY}&limit=50`)
     .then(res => res.json())
     .then(data => this.setState( {results: this.filterData(data.data)}));
   }
