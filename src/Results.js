@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SearchGifsForm from './SearchGifsForm'
+import SearchGifsForm from './SearchGifsForm';
+import ResultsList from './ResultsList';
 const API_KEY = '4yetjWpVt4anuGpdPiimW1BmA4CeW6Mh'
 
 export default class Results extends Component {
@@ -10,7 +11,6 @@ export default class Results extends Component {
     }
   }
   findGifs =  (keyword) => {
-    console.log('inside func')
     fetch(`http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=${API_KEY}&limit=5`)
     .then(res => res.json())
     .then(data => this.setState( {results: this.filterData(data.data)}));
@@ -19,10 +19,11 @@ export default class Results extends Component {
   filterData = (data) => {
     return data.map(gifObj => {
       let {id, images, title, url } = gifObj;
-      let {height, image_url, width} = images.fixed_width;
+      let {height, width} = images.fixed_width;
+
       let imageObj = {
         height,
-        'url': image_url,
+        url: images.fixed_width.url,
         width
       };
       let newGifObj = {
@@ -35,16 +36,12 @@ export default class Results extends Component {
     })
   }
 
-  renderGifs() {
-
-
-  }
   render () {
     return (
 
       <div>
         <SearchGifsForm findGifs={this.findGifs}/>
-        hello
+        <ResultsList results = {this.state.results}/>
       </div>
     )
   }
