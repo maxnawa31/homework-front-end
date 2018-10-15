@@ -14,11 +14,9 @@ const StyledList = styled.ul`
 `;
 
 const Navbar = props => (
-    <NavbarContainer>
-      <StyledList>
-        <li>See a random Gif</li>
-      </StyledList>
-    </NavbarContainer>
+  <NavbarContainer>
+    <StyledList />
+  </NavbarContainer>
 );
 
 export default Navbar;
