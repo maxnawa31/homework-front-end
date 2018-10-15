@@ -23,6 +23,7 @@ flex-direction: row;
 height: 100%;
 width: 100%;
 padding-bottom: 3%;
+margin: 0 auto;
 `
 
 export const CardListContainer = styled.div`
