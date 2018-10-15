@@ -1,6 +1,6 @@
 import React from 'react';
 import Loader from './Loader';
-import { CardListContainer, CardContainer } from './CardContainer';
+import { CardListContainer, CardContainer } from './StyledCardComponents';
 import CardImage from './CardImage';
 
 function renderGifs(results) {

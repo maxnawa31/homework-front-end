@@ -8,7 +8,6 @@ export default class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
       results: [],
     };
   }
@@ -16,7 +15,7 @@ export default class Results extends Component {
   findGifs = (keyword) => {
     fetch(`http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=${API_KEY}&limit=25`)
       .then(res => res.json())
-      .then(data => this.setState({ results: this.filterData(data.data), loading: false }));
+      .then(data => this.setState({ results: this.filterData(data.data) }));
   };
 
   filterData = data => data.map((gifObj) => {
@@ -46,7 +45,7 @@ export default class Results extends Component {
     return (
       <div>
         <SearchGifsForm findGifs={this.findGifs} />
-        <ResultsList loading={this.state.loading} results={this.state.results} />
+        <ResultsList results={this.state.results} />
       </div>
     );
   }
