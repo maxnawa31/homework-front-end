@@ -6,22 +6,19 @@ const NavbarContainer = styled.div`
   background-color: black;
   display: flex;
   flex-direction: row;
-`
+`;
 const StyledList = styled.ul`
   list-style: none;
   font-size: 1.25em;
   color: white;
-`
+`;
 
-
-const Navbar = (props) => {
-  return (
+const Navbar = props => (
     <NavbarContainer>
       <StyledList>
         <li>See a random Gif</li>
       </StyledList>
-      </NavbarContainer>
-  )
-}
+    </NavbarContainer>
+);
 
 export default Navbar;
