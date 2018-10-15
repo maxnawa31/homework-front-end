@@ -5,11 +5,13 @@ import CardImage from './CardImage';
 
 function renderGifs(results) {
   return results.map((gif) => {
-    const { title } = gif;
+    const {
+      title, rating, id, caption,
+    } = gif;
     const { url } = gif.imageObj;
     return (
       <CardContainer>
-        <CardImage url={url} />
+        <CardImage title={title} rating={rating} id={id} caption={caption} url={url} />
       </CardContainer>
     );
   });

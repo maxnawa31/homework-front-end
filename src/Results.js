@@ -21,7 +21,7 @@ export default class Results extends Component {
 
   filterData = data => data.map((gifObj) => {
     const {
-      id, images, title, url,
+      id, images, title, url, username, rating, caption,
     } = gifObj;
     const { height, width } = images.fixed_width;
 
@@ -35,6 +35,9 @@ export default class Results extends Component {
       imageObj,
       title,
       url,
+      username,
+      rating,
+      caption,
     };
     return newGifObj;
   });
